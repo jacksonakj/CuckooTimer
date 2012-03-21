@@ -1,5 +1,5 @@
-﻿/* 
- * HTML5 âœ° Boilerplate
+/* 
+ * HTML5 Ã¢Å“Â° Boilerplate
  *
  * What follows is the result of much research on cross-browser styling. 
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -232,7 +232,7 @@ td { vertical-align: top; }
 .group {
     zoom:1; /* For IE 6/7 (trigger hasLayout) */
 }
-#sw-tasks { margin: 0; padding: 0 }
+#sw-tasks { margin: 0; padding: 0;  }
 #sw-tasks li { border-bottom: 1px solid silver; }
 
 #container footer,
@@ -244,6 +244,7 @@ td { vertical-align: top; }
 	padding: 10px;
 	list-style: none;
 	margin: 0;
+	position: relative;
 }
 .button-panel {
 	margin: 0; padding: 0;
@@ -252,10 +253,17 @@ td { vertical-align: top; }
 #sw-tasks .button-panel li {
 	border: none;
 }
-#sw-tasks li .task-name h3 { font-weight: bold ; margin: 0 0 5px 0;}
-#sw-tasks li .task-name p { color: silver ; margin: 0; padding: 0;}
+#sw-tasks li .task-detail {
+	min-width:300px;
+}
+#sw-tasks li .task-detail h3 { font-weight: bold ; margin: 0 5px 5px 0; width: 70%;float: left;}
+#sw-tasks li .task-detail .status {
+	width: 80px;
+	float: right;
+}
+#sw-tasks li .task-detail p { color: #999999; margin: 0; padding: 0;}
 
-.task-name {
+.task-detail {
     width: 50%;
     float: left;
 }
@@ -285,19 +293,31 @@ td { vertical-align: top; }
 }
 .task-timer .timer-button {
 	margin-left: 5px;
-	padding: 3px;
+	font-size: .75em;
 	
 }
 .task-timer .started {
-background-color:#FFCCFF
+
+color:#800000
 }
 .task-timer>dd.note {
 	clear: both;	
 }
+.task-timer>dd.no-note {
+	color:#999999	
+}
+
 .task-buttons {
-    float: right;
     margin: 0;
     padding: 0;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+}
+
+#sw-tasks li:hover .task-buttons {
+	 display: block;
 }
 
 .sw-footer-buttons {
@@ -315,6 +335,23 @@ background-color:#FFCCFF
 .task-active {
 	 background: #CCFFCC
 }
+#sw-tasks>li>div.task-detail>ul.tags {
+	margin: 0 0 2px 0; padding: 0; border: none;
+}
+#sw-tasks>li>div.task-detail>ul.tags li { 
+list-style: none; 
+float: left; 
+border: none; 
+margin: 0 3px 3px 0;
+padding: 3px; 
+background-color:#CCCCCC; 
+font-size: .75em;
+}
+#sw-tasks>li>div.task-detail>ul.tags li a:link,
+#sw-tasks>li>div.task-detail>ul.tags li a:active,
+#sw-tasks>li>div.task-detail>ul.tags li a:focus
+ { text-decoration: none;}
+#sw-tasks>li>div.task-detail>ul.tags li a:hover { text-decoration: underline;}
 
 
 
