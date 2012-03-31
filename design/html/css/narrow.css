@@ -4,6 +4,30 @@ dl.task-timer {
 	float: none;
 	clear: both;
 }
+dl.task-timer dt {
+	 background: silver; color:white;
+width:100%; text-align:center
+}
+dl.task-timer dt a {
+	 display: none;
+}
+li.task-active dl.task-timer dt {
+	background: green; color:white;margin: 0 0 3px 0;
+}
+li dl.task-timer dd {
+display: none;
+}
+
+li.task-active dl.task-timer dd {
+display: block
+}
+
+li.task-complete dl.task-timer {
+display: none
+}
+
+
+
 .task-buttons {
 	top: auto;
     bottom: 0px;

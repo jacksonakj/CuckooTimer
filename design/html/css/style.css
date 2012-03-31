@@ -262,7 +262,9 @@ td { vertical-align: top; }
 	float: right;
 }
 #sw-tasks li .task-detail p { color: #999999; margin: 0; padding: 0;}
-
+#sw-tasks li .task-detail .status p {
+	color: #000
+}
 .task-detail {
     width: 50%;
     float: left;
@@ -273,7 +275,7 @@ td { vertical-align: top; }
 .task-timer {
 	float: left;
 	margin: 0 0 0 20px;
-	max-width: 300px;
+	max-width: 320px;
 }
 .task-timer .minutes,
 .task-timer .seconds {
@@ -335,8 +337,21 @@ color:#800000
 .task-active {
 	 background: #CCFFCC
 }
+.task-complete {
+	background: #C0C0C0;
+	
+}
+.task-complete h3 {
+	text-decoration: line-through;
+}
+.task-complete a.timer-button {
+	 display: none;
+}
+#sw-tasks>li {
+	min-width: 320px;
+}
 #sw-tasks>li>div.task-detail>ul.tags {
-	margin: 0 0 2px 0; padding: 0; border: none;
+	margin: 0 0 2px 0; padding: 0; border: none; clear: left;
 }
 #sw-tasks>li>div.task-detail>ul.tags li { 
 list-style: none; 
