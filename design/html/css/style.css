@@ -254,12 +254,13 @@ td { vertical-align: top; }
 	border: none;
 }
 #sw-tasks li .task-detail {
-	min-width:300px;
+	min-width:320px;
 }
 #sw-tasks li .task-detail h3 { font-weight: bold ; margin: 0 5px 5px 0; width: 70%;float: left;}
 #sw-tasks li .task-detail .status {
 	width: 80px;
 	float: right;
+	text-align:right;
 }
 #sw-tasks li .task-detail p { color: #999999; margin: 0; padding: 0;}
 #sw-tasks li .task-detail .status p {

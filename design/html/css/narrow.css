@@ -19,14 +19,12 @@ display: none;
 }
 
 li.task-active dl.task-timer dd {
-display: block
+display: none
 }
 
 li.task-complete dl.task-timer {
 display: none
 }
-
-
 
 .task-buttons {
 	top: auto;
@@ -34,3 +32,7 @@ display: none
     right: 0px;
     background-color: silver;
 }
+#sw-tasks>li:hover .task-buttons { display: none }
+#sw-tasks>li>div.task-detail>ul.tags { display: none }
+#sw-tasks>li>div.task-detail { margin-bottom: 5px }
+#sw-tasks li .task-detail h3 { margin: 0 5px 0 0 }
