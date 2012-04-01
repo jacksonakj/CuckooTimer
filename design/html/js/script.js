@@ -1,7 +1,7 @@
 /* Author: 
 
 */
-
+ko.applyBindings(ViewModel);
 
 
 
