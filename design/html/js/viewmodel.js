@@ -1,18 +1,25 @@
-﻿var ViewModel = {
-	today : new Date(2012, 3, 1),
-	totalHours : 0,
-	totalMinutes : 45,
-	totalSeconds : 12,
-	tasks : [
-		{
-			name: 'Email, planning, and time tracking',
-			description: 'This is the description',
-			dueDate: new Date(2012, 3, 5, 8, 30, 0, 0),
-			tags: ['Administrative'],
-			status: {id:1, description: 'In Progress'},
-			time : [
-				{ start: new Date(2012, 3, 1, 8, 00, 0, 0), stop: new Date(2012, 3, 1, 8, 30, 0, 0), note: 'Your eyes can deceive you. Don\'t trust them. Kid, I\'ve flown from one side of this galaxy to the other.' }
-			]
-		}
-	]
-};
+﻿function ViewModel() {
+	var self = this;
+	
+	function pad(num, size) {
+	    var s = num+"";
+	    while (s.length < size) s = "0" + s;
+	    return s;
+	}
+	self.today = ko.observable();
+	self.totalTime = ko.observable();
+	self.totalDays = ko.computed(function() {
+		return Math.floor(self.totalTime() / 86400);
+	});
+	self.totalHours = ko.computed(function() {
+		return Math.floor((self.totalTime() - (self.totalDays() * 86400)) / 3600 );
+	});
+	self.totalMinutes = ko.computed(function() {
+		return Math.floor((self.totalTime() - (self.totalDays() * 86400) - (self.totalHours() * 3600)) / 60 );
+	});
+	self.totalSeconds = ko.computed(function() {
+		return pad(Math.floor((self.totalTime() - (self.totalDays() * 86400) - (self.totalHours() * 3600) - (self.totalMinutes () * 60))), 2);
+	});
+	
+	
+}
