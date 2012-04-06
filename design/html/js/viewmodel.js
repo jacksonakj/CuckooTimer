@@ -1,11 +1,6 @@
 ﻿function ViewModel() {
 	var self = this;
 	
-	function pad(num, size) {
-	    var s = num+"";
-	    while (s.length < size) s = "0" + s;
-	    return s;
-	}
 	self.today = ko.observable();
 	self.totalTime = ko.observable();
 	self.totalDays = ko.computed(function() {
@@ -23,3 +18,10 @@
 	
 	
 }
+
+function pad(num, size) {
+    var s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
+}
+

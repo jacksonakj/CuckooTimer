@@ -43,7 +43,7 @@
     </header>
     <div id="main" role="main">
 	    <div id="sw-header" class="group">
-	      <div  class="date" data-bind="text: today"></div>
+	      <div  class="date" data-bind="dateString: today, datePattern: 'dddd, MMMM dd, yyyy'"></div>
 	      <div class="total">
             <span class="minutes" data-bind="text: totalMinutes">0</span>.<span class="seconds" data-bind="text: totalSeconds">00</span>
         </div>
@@ -177,6 +177,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
   <script src="js/libs/knockout-2.0.0.js"></script>
+  <script src="js/libs/date.js"></script>
 
   <!-- scripts concatenated and minified via ant build script-->
   <script defer src="js/plugins.js"></script>
