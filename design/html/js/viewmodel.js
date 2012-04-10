@@ -10,6 +10,17 @@ function TimeEntry(start) {
     self.start =  ko.observable(start);
     self.stop =  ko.observable();
     self.note =  ko.observable();
+    self.elapsed = ko.computed(function() {
+    	if (self.start()) {
+    		if (self.stop()) {
+    			return self.stop() - self.start();
+    		} else {
+    			return new Date() - self.start();
+    		} 
+    	} else {
+    		return 0;
+    	}
+    });
 }
 
 function TaskStatus(id, name) {
@@ -25,7 +36,14 @@ function Task(name) {
     self.dueDate = ko.observable();
     self.tags = ko.observableArray();
     self.status = ko.observable([new TaskStatus(1, 'New')]);
-    self.timeEntries = ko.observableArray();    
+    self.timeEntries = ko.observableArray();   
+    self.totalTime = ko.computed(function() {
+    	var timespan = 0;
+    	for(var i = 0; i < self.timeEntries().length; i++) {
+    		timespan += self.timeEntries()[i].elapsed();
+    	}
+    	return timespan;
+    }); 
 }
 
 

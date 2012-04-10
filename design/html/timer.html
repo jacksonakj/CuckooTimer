@@ -48,7 +48,34 @@
             <span class="minutes" data-bind="timespan: totalTime, pattern: 'minutes'">0</span>.<span class="seconds" data-bind="timespan: totalTime, pattern: 'seconds'">00</span>
         </div>
 	    </div>
-	    <ul id="sw-tasks">
+	    <ul id="sw-tasks" data-bind="foreach: tasks">
+	    	<li class="group">
+	            <div class="task-detail">
+	                <h3 data-bind="text: name"></h3>
+	                <div class="status">
+	                	<p data-bind="dateString: dueDate, datePattern: 'ddd, h:mm tt'"></p>
+	                	<p><a href="#" data-bind="text: status.name"></a></p>
+	                </div>
+            		<ul class="tags group">
+            			<!-- ko foreach: tags -->
+	                	<li><span data-bind="text: $data"></span> <a href="#">X</a></li>
+	                	<!-- /ko -->
+	                	<li class="tags-add command"><a href="#">Add a tag</a></li>
+	                </ul>
+	                <p class="task-desc" data-bind="text: description"></p>
+	            </div>
+	            <dl class="task-timer group stopped">
+	            	<dt><span class="minutes" data-bind="timespan: totalTime, pattern: 'minutes'">0</span>.<span class="seconds" data-bind="timespan: totalTime, pattern: 'seconds'">00</span>
+<a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
+	            	<dd class="note no-note">Add a note</dd>
+	            </dl>
+	            <ul class="task-buttons button-panel group">
+	                <li><a href="#">Edit</a></li>
+	                <li><a href="#">Delete</a></li>
+	            </ul>
+	    		
+	    	</li>
+	    <!--
 	        <li class="group">
 	            <div class="task-detail">
 	                <h3>Email, planning, and time tracking</h3>
@@ -159,7 +186,8 @@
 	                <li><a href="#">Edit</a></li>
 	                <li><a href="#">Delete</a></li>
 	            </ul>
-	        </li>        
+	        </li>     
+	        -->   
 	    </ul>
     </div>
     <footer class="group">
