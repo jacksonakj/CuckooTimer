@@ -45,7 +45,7 @@
 	    <div id="sw-header" class="group">
 	      <div  class="date" data-bind="dateString: today, datePattern: 'dddd, MMMM dd, yyyy'"></div>
 	      <div class="total">
-            <span class="minutes" data-bind="timespan: totalTime, pattern: 'minutes'">0</span>.<span class="seconds" data-bind="timespan: totalTime, pattern: 'seconds'">00</span>
+            <span class="minutes" data-bind="timespan: totalTime, pattern: 'm'">0</span>.<span class="seconds" data-bind="timespan: totalTime, pattern: 'ss'">00</span>
         </div>
 	    </div>
 	    <ul id="sw-tasks" data-bind="foreach: tasks">
@@ -65,7 +65,7 @@
 	                <p class="task-desc" data-bind="text: description"></p>
 	            </div>
 	            <dl class="task-timer group stopped">
-	            	<dt><span class="minutes" data-bind="timespan: totalTime, pattern: 'minutes'">0</span>.<span class="seconds" data-bind="timespan: totalTime, pattern: 'seconds'">00</span>
+	            	<dt><span class="minutes" data-bind="timespan: totalTime, pattern: 'd.H:mm'"></span>.<span class="seconds" data-bind="timespan: totalTime, pattern: 'ss'">00</span>
 <a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
 	            	<dd class="note no-note">Add a note</dd>
 	            </dl>
@@ -206,6 +206,7 @@
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
   <script src="js/libs/knockout-2.0.0.js"></script>
   <script src="js/libs/date.js"></script>
+  <script src="js/libs/time-debug.js"></script>
 
   <!-- scripts concatenated and minified via ant build script-->
   <script defer src="js/plugins.js"></script>

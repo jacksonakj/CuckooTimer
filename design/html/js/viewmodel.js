@@ -11,15 +11,11 @@ function TimeEntry(start) {
     self.stop =  ko.observable();
     self.note =  ko.observable();
     self.elapsed = ko.computed(function() {
+    	var timespan = 0;
     	if (self.start()) {
-    		if (self.stop()) {
-    			return self.stop() - self.start();
-    		} else {
-    			return new Date() - self.start();
-    		} 
-    	} else {
-    		return 0;
+    		timespan = self.stop() ? self.stop() - self.start() : new Date() - self.start();
     	}
+    	return timespan;
     });
 }
 
@@ -39,9 +35,9 @@ function Task(name) {
     self.timeEntries = ko.observableArray();   
     self.totalTime = ko.computed(function() {
     	var timespan = 0;
-    	for(var i = 0; i < self.timeEntries().length; i++) {
-    		timespan += self.timeEntries()[i].elapsed();
-    	}
+    	ko.utils.arrayForEach(self.timeEntries(), function(timeEntry) {
+    		timespan += timeEntry.elapsed();
+    	});    	
     	return timespan;
     }); 
 }
