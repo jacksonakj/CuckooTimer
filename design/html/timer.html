@@ -42,158 +42,158 @@
 
     </header>
     <div id="main" role="main">
-	    <div id="sw-header" class="group">
-	      <div  class="date" data-bind="dateString: today, datePattern: 'dddd, MMMM dd, yyyy'"></div>
-	      <div class="total">
+        <div id="sw-header" class="group">
+          <div  class="date" data-bind="dateString: today, datePattern: 'dddd, MMMM dd, yyyy'"></div>
+          <div class="total">
             <span class="minutes" data-bind="timespan: totalTime, pattern: 'm'">0</span>.<span class="seconds" data-bind="timespan: totalTime, pattern: 'ss'">00</span>
         </div>
-	    </div>
-	    <ul id="sw-tasks" data-bind="foreach: tasks">
-	    	<li class="group">
-	            <div class="task-detail">
-	                <h3 data-bind="text: name"></h3>
-	                <div class="status">
-	                	<p data-bind="dateString: dueDate, datePattern: 'ddd, h:mm tt'"></p>
-	                	<p><a href="#" data-bind="text: status.name"></a></p>
-	                </div>
-            		<ul class="tags group">
-            			<!-- ko foreach: tags -->
-	                	<li><span data-bind="text: $data"></span> <a href="#">X</a></li>
-	                	<!-- /ko -->
-	                	<li class="tags-add command"><a href="#">Add a tag</a></li>
-	                </ul>
-	                <p class="task-desc" data-bind="text: description"></p>
-	            </div>
-	            <dl class="task-timer group stopped">
-	            	<dt><span class="minutes" data-bind="timespan: totalTime, pattern: 'd.H:mm'"></span>.<span class="seconds" data-bind="timespan: totalTime, pattern: 'ss'">00</span>
+        </div>
+        <ul id="sw-tasks" data-bind="foreach: tasks">
+            <li class="group">
+                <div class="task-detail">
+                    <h3 data-bind="text: name"></h3>
+                    <div class="status">
+                        <p data-bind="dateString: dueDate, datePattern: 'ddd, h:mm tt'"></p>
+                        <p><a href="#" data-bind="text: status().name">Status</a></p>
+                    </div>
+                    <ul class="tags group">
+                        <!-- ko foreach: tags -->
+                        <li><span data-bind="text: $data"></span> <a href="#">X</a></li>
+                        <!-- /ko -->
+                        <li class="tags-add command"><a href="#">Add a tag</a></li>
+                    </ul>
+                    <p class="task-desc" data-bind="text: description"></p>
+                </div>
+                <dl class="task-timer group stopped">
+                    <dt><span class="minutes" data-bind="timespan: totalTime, pattern: 'd.H:mm'"></span>.<span class="seconds" data-bind="timespan: totalTime, pattern: 'ss'">00</span>
 <a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
-	            	<dd class="note no-note">Add a note</dd>
-	            </dl>
-	            <ul class="task-buttons button-panel group">
-	                <li><a href="#">Edit</a></li>
-	                <li><a href="#">Delete</a></li>
-	            </ul>
-	    		
-	    	</li>
-	    <!--
-	        <li class="group">
-	            <div class="task-detail">
-	                <h3>Email, planning, and time tracking</h3>
-	                <div class="status">
-	                	<p>Mon 8:30 AM</p>
-	                	<p><a href="#">In Progress</a></p>
-	                </div>
-	                <ul class="tags group">
-	                	<li class="tags-add command"><a href="#">Add a tag</a></li>
-	                </ul>
-	                <p class="task-desc">This is the description</p>
-	            </div>
-	            <dl class="task-timer group stopped">
-	            	<dt><span class="minutes">0</span>.<span class="seconds">00</span><a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
-	            	<dd class="note no-note">Add a note</dd>
-	            </dl>
-	            <ul class="task-buttons button-panel group">
-	                <li><a href="#">Edit</a></li>
-	                <li><a href="#">Delete</a></li>
-	            </ul>
-	        </li>
-	        <li class="group">
-	            <div class="task-detail">
-	                <h3>Sales support</h3>
-	                <div class="status">
-	                	<p>Mon 8:30 AM</p>
-	                	<p><a href="#">New</a></p>
-	                </div>
-	                <ul class="tags group">
-	                	<li class="tags-add command"><a href="#">Add a tag</a></li>
-	                </ul>
-	                <p class="task-desc">What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide. All right.</p>
-	            </div>
-	            <dl class="task-timer group stopped">
-	            	<dt><span class="minutes">0</span>.<span class="seconds">00</span><a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
-	            	<dd class="note no-note">Add a note</dd>
-	            </dl>
-	            <ul class="task-buttons button-panel group">
-	                <li><a href="#">Edit</a></li>
-	                <li><a href="#">Delete</a></li>
-	            </ul>
-	        </li>        
-	        <li class="group task-active">
-	            <div class="task-detail">
-		            <h3>Training and skills improvement</h3>
-	                <div class="status">
-	                	<p>Fri 4:30 PM</p>
-	                	<p><a href="#">In Progress</a></p>
-		            </div>
-	                <ul class="tags group">
-	                	<li>Administrative <a href="#">X</a></li>
-	                	<li>Training <a href="#">X</a></li>
-	                	<li class="tags-add command"><a href="#">Add a tag</a></li>
-	                </ul>
-	                <p class="task-desc">Hokey religions and ancient weapons are no match for a good blaster at your side, kid. What good is a reward if you ain't around to use it? </p>
-	            </div>
-	            <dl class="task-timer group">
-	            	<dt><span class="minutes">1</span>.<span class="seconds">31</span><a class="timer-button started" href="#">Stop</a><span class="duration">(Started at 11:41pm with .56 hours)</span></dt>
-	            	<dd class="note">Your eyes can deceive you. Don't trust them. Kid, I've flown from one side of this galaxy to the other.</dd>
-	            </dl>
-	            <ul class="task-buttons button-panel group">
-	                <li><a href="#">Edit</a></li>
-	                <li><a href="#">Delete</a></li>
-	            </ul>
-	        </li>
-	        
-	        <li class="group">
-	            <div class="task-detail">
-	                <h3>AthleticHost: Modify image upload to better handle images with unexpected size ratios</h3>
-	                <div class="status">
-	                	<p>Mon 8:30 AM</p>
-	                	<p><a href="#">In Progress</a></p>
-	                </div>
-	                <ul class="tags group">
-	                	<li>AthleticHost <a href="#">X</a></li>
-	                	<li class="tags-add command"><a href="#">Add a tag</a></li>
-	                </ul>
-	                <p class="task-desc">I don't know what you're talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan-- Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force. I'm surprised you had the courage to take the responsibility yourself.</p>
-	            </div>
-	            <dl class="task-timer group stopped">
-	            	<dt><span class="minutes">0</span>.<span class="seconds">00</span><a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
-	            	<dd class="note no-note">Add a note</dd>
-	            </dl>
-	            <ul class="task-buttons button-panel group">
-	                <li><a href="#">Edit</a></li>
-	                <li><a href="#">Delete</a></li>
-	            </ul>
-	        </li>
-	        
-	        <li class="group task-complete">
-	            <div class="task-detail">
-	                <h3>AthleticHost: Integrate the event calendar with the iCal feed from highschoolsports.net</h3>
-	                <div class="status">
-	                	<p>Mon 8:30 AM</p>
-	                	<p><a href="#">Complete</a></p>
-	                </div>
-	                <ul class="tags group">
-	                	<li>AthleticHost <a href="#">X</a></li>
-	                	<li class="tags-add command"><a href="#">Add a tag</a></li>
-	                </ul>
-	                <p class="task-desc">Your eyes can deceive you. Don't trust them.</p>
-	            </div>
-	            <dl class="task-timer group stopped">
-	            	<dt><span class="minutes">0</span>.<span class="seconds">00</span><a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
-	            	<dd class="note no-note">Add a note</dd>
-	            </dl>
-	            <ul class="task-buttons button-panel group">
-	                <li><a href="#">Edit</a></li>
-	                <li><a href="#">Delete</a></li>
-	            </ul>
-	        </li>     
-	        -->   
-	    </ul>
+                    <dd class="note no-note">Add a note</dd>
+                </dl>
+                <ul class="task-buttons button-panel group">
+                    <li><a href="#">Edit</a></li>
+                    <li><a href="#">Delete</a></li>
+                </ul>
+                
+            </li>
+        <!--
+            <li class="group">
+                <div class="task-detail">
+                    <h3>Email, planning, and time tracking</h3>
+                    <div class="status">
+                        <p>Mon 8:30 AM</p>
+                        <p><a href="#">In Progress</a></p>
+                    </div>
+                    <ul class="tags group">
+                        <li class="tags-add command"><a href="#">Add a tag</a></li>
+                    </ul>
+                    <p class="task-desc">This is the description</p>
+                </div>
+                <dl class="task-timer group stopped">
+                    <dt><span class="minutes">0</span>.<span class="seconds">00</span><a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
+                    <dd class="note no-note">Add a note</dd>
+                </dl>
+                <ul class="task-buttons button-panel group">
+                    <li><a href="#">Edit</a></li>
+                    <li><a href="#">Delete</a></li>
+                </ul>
+            </li>
+            <li class="group">
+                <div class="task-detail">
+                    <h3>Sales support</h3>
+                    <div class="status">
+                        <p>Mon 8:30 AM</p>
+                        <p><a href="#">New</a></p>
+                    </div>
+                    <ul class="tags group">
+                        <li class="tags-add command"><a href="#">Add a tag</a></li>
+                    </ul>
+                    <p class="task-desc">What good is a reward if you ain't around to use it? Besides, attacking that battle station ain't my idea of courage. It's more like…suicide. All right.</p>
+                </div>
+                <dl class="task-timer group stopped">
+                    <dt><span class="minutes">0</span>.<span class="seconds">00</span><a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
+                    <dd class="note no-note">Add a note</dd>
+                </dl>
+                <ul class="task-buttons button-panel group">
+                    <li><a href="#">Edit</a></li>
+                    <li><a href="#">Delete</a></li>
+                </ul>
+            </li>        
+            <li class="group task-active">
+                <div class="task-detail">
+                    <h3>Training and skills improvement</h3>
+                    <div class="status">
+                        <p>Fri 4:30 PM</p>
+                        <p><a href="#">In Progress</a></p>
+                    </div>
+                    <ul class="tags group">
+                        <li>Administrative <a href="#">X</a></li>
+                        <li>Training <a href="#">X</a></li>
+                        <li class="tags-add command"><a href="#">Add a tag</a></li>
+                    </ul>
+                    <p class="task-desc">Hokey religions and ancient weapons are no match for a good blaster at your side, kid. What good is a reward if you ain't around to use it? </p>
+                </div>
+                <dl class="task-timer group">
+                    <dt><span class="minutes">1</span>.<span class="seconds">31</span><a class="timer-button started" href="#">Stop</a><span class="duration">(Started at 11:41pm with .56 hours)</span></dt>
+                    <dd class="note">Your eyes can deceive you. Don't trust them. Kid, I've flown from one side of this galaxy to the other.</dd>
+                </dl>
+                <ul class="task-buttons button-panel group">
+                    <li><a href="#">Edit</a></li>
+                    <li><a href="#">Delete</a></li>
+                </ul>
+            </li>
+            
+            <li class="group">
+                <div class="task-detail">
+                    <h3>AthleticHost: Modify image upload to better handle images with unexpected size ratios</h3>
+                    <div class="status">
+                        <p>Mon 8:30 AM</p>
+                        <p><a href="#">In Progress</a></p>
+                    </div>
+                    <ul class="tags group">
+                        <li>AthleticHost <a href="#">X</a></li>
+                        <li class="tags-add command"><a href="#">Add a tag</a></li>
+                    </ul>
+                    <p class="task-desc">I don't know what you're talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan-- Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force. I'm surprised you had the courage to take the responsibility yourself.</p>
+                </div>
+                <dl class="task-timer group stopped">
+                    <dt><span class="minutes">0</span>.<span class="seconds">00</span><a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
+                    <dd class="note no-note">Add a note</dd>
+                </dl>
+                <ul class="task-buttons button-panel group">
+                    <li><a href="#">Edit</a></li>
+                    <li><a href="#">Delete</a></li>
+                </ul>
+            </li>
+            
+            <li class="group task-complete">
+                <div class="task-detail">
+                    <h3>AthleticHost: Integrate the event calendar with the iCal feed from highschoolsports.net</h3>
+                    <div class="status">
+                        <p>Mon 8:30 AM</p>
+                        <p><a href="#">Complete</a></p>
+                    </div>
+                    <ul class="tags group">
+                        <li>AthleticHost <a href="#">X</a></li>
+                        <li class="tags-add command"><a href="#">Add a tag</a></li>
+                    </ul>
+                    <p class="task-desc">Your eyes can deceive you. Don't trust them.</p>
+                </div>
+                <dl class="task-timer group stopped">
+                    <dt><span class="minutes">0</span>.<span class="seconds">00</span><a class="timer-button" href="#">Start</a><span class="duration"></span></dt>
+                    <dd class="note no-note">Add a note</dd>
+                </dl>
+                <ul class="task-buttons button-panel group">
+                    <li><a href="#">Edit</a></li>
+                    <li><a href="#">Delete</a></li>
+                </ul>
+            </li>     
+            -->   
+        </ul>
     </div>
     <footer class="group">
-	    <ul class="sw-footer-buttons button-panel group">
-	        <li><a href="#">Add Task</a></li>
-	    </ul>
+        <ul class="sw-footer-buttons button-panel group">
+            <li><a href="#">Add Task</a></li>
+        </ul>
 
     </footer>
   </div> <!--! end of #container -->
@@ -214,7 +214,7 @@
   <script defer src="js/script.js"></script>
   <!-- end scripts-->
 
-	
+    
   <!-- Change UA-XXXXX-X to be your site's ID -->
   <!--
   <script>

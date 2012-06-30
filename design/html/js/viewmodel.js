@@ -22,7 +22,7 @@ function TimeEntry(start) {
 function TaskStatus(id, name) {
     var self = this;
     self.id = id;
-    self.name = name
+    self.name = name;
 }
 
 function Task(name) {
@@ -31,7 +31,7 @@ function Task(name) {
     self.description = ko.observable();
     self.dueDate = ko.observable();
     self.tags = ko.observableArray();
-    self.status = ko.observable([new TaskStatus(1, 'New')]);
+    self.status = ko.observable(new TaskStatus(1, 'New'));
     self.timeEntries = ko.observableArray();   
     self.totalTime = ko.computed(function() {
     	var timespan = 0;
